@@ -224,7 +224,7 @@ export default function SurveyDashboard({ data }: Props) {
       </section>
 
       <footer className="mt-10 border-t border-ink/15 pt-5 text-center text-sm text-ink/75">
-        <span className="font-semibold text-ink/90">Creado por Comisión de tecnologías</span>
+        <span className="font-semibold text-ink/90">Comisión de Tecnología - Escuela Herminio Almendros</span>
       </footer>
     </main>
   );

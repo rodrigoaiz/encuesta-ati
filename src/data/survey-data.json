@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "sourceFile": "Formulario sin título (Respuestas).xlsx",
+    "validResponses": 122,
+    "note": "Se excluyen comentarios y marca temporal. Algunas respuestas incluyen varios grados y se contabilizan en cada grado indicado."
+  },
+  "questions": [
+    "¿Te gustaría que se realice en los siguientes ciclos escolares?",
+    "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?"
+  ],
+  "overall": {
+    "responses": 122,
+    "gradesDistribution": [
+      {
+        "name": "Primero",
+        "value": 14
+      },
+      {
+        "name": "Segundo",
+        "value": 22
+      },
+      {
+        "name": "Tercero",
+        "value": 21
+      },
+      {
+        "name": "Cuarto",
+        "value": 29
+      },
+      {
+        "name": "Quinto",
+        "value": 15
+      },
+      {
+        "name": "Sexto",
+        "value": 27
+      }
+    ],
+    "answers": {
+      "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+        "Si": 107,
+        "No": 15
+      },
+      "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+        "Si": 109,
+        "No": 13
+      }
+    }
+  },
+  "byGrade": {
+    "Primero": {
+      "responses": 14,
+      "answers": {
+        "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+          "Si": 13,
+          "No": 1
+        },
+        "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+          "Si": 14,
+          "No": 0
+        }
+      }
+    },
+    "Segundo": {
+      "responses": 22,
+      "answers": {
+        "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+          "Si": 20,
+          "No": 2
+        },
+        "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+          "Si": 19,
+          "No": 3
+        }
+      }
+    },
+    "Tercero": {
+      "responses": 21,
+      "answers": {
+        "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+          "Si": 15,
+          "No": 6
+        },
+        "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+          "Si": 17,
+          "No": 4
+        }
+      }
+    },
+    "Cuarto": {
+      "responses": 29,
+      "answers": {
+        "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+          "Si": 27,
+          "No": 2
+        },
+        "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+          "Si": 27,
+          "No": 2
+        }
+      }
+    },
+    "Quinto": {
+      "responses": 15,
+      "answers": {
+        "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+          "Si": 11,
+          "No": 4
+        },
+        "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+          "Si": 11,
+          "No": 4
+        }
+      }
+    },
+    "Sexto": {
+      "responses": 27,
+      "answers": {
+        "¿Te gustaría que se realice en los siguientes ciclos escolares?": {
+          "Si": 26,
+          "No": 1
+        },
+        "¿Consideras que el temario está de acuerdo con las necesidades los niñ@s?": {
+          "Si": 26,
+          "No": 1
+        }
+      }
+    }
+  }
+}

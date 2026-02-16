@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SurveyDashboard from '../components/SurveyDashboard';
+import surveyData from '../data/survey-data.json';
+---
+
+<BaseLayout title="Resultados de Encuesta ATI">
+  <SurveyDashboard client:load data={surveyData} />
+</BaseLayout>

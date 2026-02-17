@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Bar,
   BarChart,
@@ -59,9 +59,29 @@ const answerToChart = (answers: Answers) => [
 export default function SurveyDashboard({ data }: Props) {
   const gradeNames = useMemo(() => Object.keys(data.byGrade), [data.byGrade]);
   const [selectedGrade, setSelectedGrade] = useState<string>('Toda la escuela');
+  const [isFilterStuck, setIsFilterStuck] = useState(false);
+  const stickySentinelRef = useRef<HTMLDivElement | null>(null);
 
   const view = selectedGrade === 'Toda la escuela' ? data.overall : data.byGrade[selectedGrade];
   const responses = view.responses;
+
+  useEffect(() => {
+    const sentinel = stickySentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFilterStuck(!entry.isIntersecting);
+      },
+      {
+        threshold: [1],
+        rootMargin: '-12px 0px 0px 0px'
+      }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-8 sm:py-12">
@@ -72,7 +92,7 @@ export default function SurveyDashboard({ data }: Props) {
         <div className="relative">
           <div className="flex items-center gap-4 rounded-2xl border border-gold/35 bg-white/75 p-4">
             <img
-              src="/EscuelaHerminioAlmendrosLogo-Amarillo.png"
+              src="/EscuelaHerminioAlmendrosLogo-Negro.png"
               alt="Logotipo de la Escuela Herminio Almendros"
               className="h-16 w-auto object-contain sm:h-20"
               loading="eager"
@@ -115,8 +135,21 @@ export default function SurveyDashboard({ data }: Props) {
         </div>
       </section>
 
-      <section className="mt-8 rounded-3xl border border-ink/15 bg-white/85 p-4 shadow-card sm:p-6">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink/70">Filtro</p>
+      <div ref={stickySentinelRef} className="mt-8 h-px w-full" aria-hidden="true" />
+      <section
+        className={`sticky z-30 rounded-3xl border bg-white/90 transition-all duration-300 ease-out ${
+          isFilterStuck
+            ? 'top-0 border-gold/35 px-3 py-3 shadow-lg backdrop-blur max-sm:-mx-4 max-sm:rounded-none max-sm:border-x-0 sm:top-4 sm:px-4 sm:py-4'
+            : 'top-2 border-ink/15 p-4 shadow-card sm:top-4 sm:p-6'
+        }`}
+      >
+        <p
+          className={`font-semibold uppercase tracking-[0.16em] text-ink/70 transition-all duration-300 ${
+            isFilterStuck ? 'mb-2 text-[10px] sm:text-[11px]' : 'mb-4 text-xs'
+          }`}
+        >
+          Filtro
+        </p>
         <div className="flex flex-wrap gap-2">
           {['Toda la escuela', ...gradeNames].map((grade) => {
             const active = selectedGrade === grade;
@@ -125,7 +158,9 @@ export default function SurveyDashboard({ data }: Props) {
                 key={grade}
                 type="button"
                 onClick={() => setSelectedGrade(grade)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                className={`rounded-full font-semibold transition ${
+                  isFilterStuck ? 'px-3 py-1.5 text-xs sm:text-sm' : 'px-4 py-2 text-sm'
+                } ${
                   active
                     ? 'border border-gold/60 bg-gold text-ink shadow-md'
                     : 'border border-ink/15 bg-paper text-ink hover:border-ink/40'

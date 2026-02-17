@@ -90,7 +90,7 @@ export default function SurveyDashboard({ data }: Props) {
         <div className="absolute -bottom-24 -left-16 h-52 w-52 rounded-full bg-ink/8 blur-2xl" />
 
         <div className="relative">
-          <div className="flex items-center gap-4 rounded-2xl border border-gold/35 bg-white/75 p-4">
+          <div className="flex flex-col md:flex-row items-center gap-4 rounded-2xl border border-gold/35 bg-white/75 p-4">
             <img
               src="/EscuelaHerminioAlmendrosLogo-Negro.png"
               alt="Logotipo de la Escuela Herminio Almendros"
@@ -139,8 +139,8 @@ export default function SurveyDashboard({ data }: Props) {
       <section
         className={`sticky z-30 rounded-3xl border bg-white/90 transition-all duration-300 ease-out ${
           isFilterStuck
-            ? 'top-0 border-gold/35 px-3 py-3 shadow-lg backdrop-blur max-sm:-mx-4 max-sm:rounded-none max-sm:border-x-0 sm:top-4 sm:px-4 sm:py-4'
-            : 'top-2 border-ink/15 p-4 shadow-card sm:top-4 sm:p-6'
+            ? 'top-[calc(env(safe-area-inset-top)+0.25rem)] border-gold/35 px-3 py-3 shadow-lg backdrop-blur max-sm:-mx-4 max-sm:rounded-none max-sm:border-x-0 sm:top-4 sm:px-4 sm:py-4'
+            : 'top-[calc(env(safe-area-inset-top)+0.5rem)] border-ink/15 p-4 shadow-card sm:top-4 sm:p-6'
         }`}
       >
         <p
@@ -259,7 +259,18 @@ export default function SurveyDashboard({ data }: Props) {
       </section>
 
       <footer className="mt-10 border-t border-ink/15 pt-5 text-center text-sm text-ink/75">
-        <span className="font-semibold text-ink/90">Comisión de Tecnología - Escuela Herminio Almendros</span>
+        <p className="font-semibold text-ink/90">Comisión de Tecnología - Escuela Herminio Almendros</p>
+        <p
+        className="text-[10px] uppercase tracking-widest text-slate-400 mt-6 font-bold"
+        >
+          Desarrollado por <a
+            href="https://github.com/rodrigoaiz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-800 hover:text-orange-500 transition-colors"
+            >Rodrigo Aizpuru</a
+          >
+        </p>
       </footer>
     </main>
   );
